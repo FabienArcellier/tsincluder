@@ -1,4 +1,6 @@
 .idea
+build/
+tsincluder.egg-info/
 dist
 venv
 venv3

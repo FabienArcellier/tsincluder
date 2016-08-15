@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='tsincluder',
@@ -9,6 +9,12 @@ setup(
     install_requires=[
         'future',
     ],
+    include_package_data=True,
+    entry_points = {
+        'console_scripts': [
+            'tsincluder = tsincluder.__main__:run',
+        ],
+    },
     license='Mozilla Public License, v. 2.0',
     long_description=open('README.md').read(),
 )

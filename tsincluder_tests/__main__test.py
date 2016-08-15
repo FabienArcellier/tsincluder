@@ -16,3 +16,12 @@ class ProcessorTest(unittest.TestCase):
         text = self.tested.process('test')
         # Assert
         self.assertEqual('test', text)
+
+    def test_a_line_that_begins_with_a_markup_invoke_a_subprocess(self):
+        # Assign
+
+        # Acts
+        text = self.tested.process('@tsincluder echo "hello world"')
+        # Assert
+        self.assertEqual('hello world\n', text)
+

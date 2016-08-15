@@ -2,9 +2,11 @@
 # coding=utf-8
 
 from __future__ import print_function
+
 import argparse
 import subprocess
 import sys
+
 
 class Processor(object):
     """
@@ -31,11 +33,20 @@ class Processor(object):
 
         return line
 
+
 def main(arguments):
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('infile', help="input file", type=argparse.FileType('r'))
+    parser.add_argument('infile', help="input file to transform", type=argparse.FileType('r'))
     args = parser.parse_args(arguments)
 
+    processor = Processor()
+    for line in args.infile:
+        line = processor.process(line)
+        print(line, end='')
+
+def run():
+    main(sys.argv[1:])
+
 if __name__ == "__main__":
-    main(sys.argv)
+    main(sys.argv[1:])

@@ -31,7 +31,8 @@ tsincluder CHANGELOG.md.in > CHANGELOG.md
 
 ## Synopsis
 
-tsincluder is a ``cli`` and a ``library`` you can call from a python script that will replace a markup as ``@tsincluder echo hello world`` by ``hello world``.
+``tsincluder`` means Text Script Inclusion Manager.
+``tsincluder`` is a ``cli`` and a ``library`` you can call from a python script that will replace a markup as ``@tsincluder echo hello world`` by ``hello world``.
 
 It keep the content that prefix the markup to generate a valid format as markdown and add it
 on all the lines if tsincluder generate many lines.
@@ -71,13 +72,16 @@ processor = Processor(working_directory="/tmp", markup="@other_markup")
 
 ## Installation
 
-Use make to instanciate a python virtual environment in ./venv and install the
-python dependencies.
+Install tsincluder using PyPi
 
 ```bash
-make venv
-source venv/bin/activate
-pip install -r requirements.txt
+pip install tsincluder
+```
+
+Install tsincluder from the source
+
+```bash
+python setup.py install
 ```
 
 ## Tests
