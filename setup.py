@@ -15,6 +15,7 @@ setup(
             'tsincluder = tsincluder.__main__:run',
         ],
     },
+    url='https://github.com/FabienArcellier/tsincluder',
     license='Mozilla Public License, v. 2.0',
     long_description=open('README.md').read(),
 )

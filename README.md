@@ -41,7 +41,7 @@ on all the lines if tsincluder generate many lines.
 
 You can find the latest version to ...
 
-    git clone ...
+    git clone https://github.com/FabienArcellier/tsincluder.git
 
 ## Usage
 
