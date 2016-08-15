@@ -2,8 +2,8 @@
 # coding=utf-8
 
 from __future__ import print_function
-
 import argparse
+import os
 import subprocess
 import sys
 
@@ -14,8 +14,11 @@ class Processor(object):
     :type str working_directory
     """
 
-    def __init__(self, working_directory='.', markup='@tsincluder'):
+    def __init__(self, working_directory=None, markup='@tsincluder'):
         self.markup = markup
+
+        if working_directory is None:
+            working_directory = os.getcwd()
         self.working_directory = working_directory
 
     def process(self, line):
@@ -24,7 +27,13 @@ class Processor(object):
             prefix = line[0:line.rfind(markup)]
 
             shell_command = line.replace(prefix, '').replace(markup, '')
-            text = subprocess.Popen(shell_command, shell=True, stdout=subprocess.PIPE).stdout.read()
+            text = subprocess.Popen(
+                shell_command,
+                shell=True,
+                stdout=subprocess.PIPE,
+                cwd=self.working_directory
+            ).stdout.read()
+
             rows = text.split('\n')
             line = ''
             for row in rows:
